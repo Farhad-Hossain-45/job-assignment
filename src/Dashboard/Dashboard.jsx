@@ -111,7 +111,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div>
+        <div className="my-10">
             <h2 className="text-5xl text-center font-bold ">Task Management Dashboard</h2>
             <div>
                

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import { Link } from 'react-router-dom';
 import './Banner.css'
@@ -9,7 +10,7 @@ const Banner = () => {
 
             </div>
             <div>
-                <Link><button className='btn btn-primary absolute bottom-48 left-96'>Explore</button></Link>
+                <Link to="/dashboard"><button className='btn btn-primary absolute bottom-36 left-96'>Let's Explore</button></Link>
             </div>
         </div>
     );

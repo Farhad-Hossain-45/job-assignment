@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../components/AuthProvider/AuthProvider";
+import Logo from "../../components/Logo/Logo";
 
 
 const Navbar = () => {
@@ -14,6 +15,8 @@ const Navbar = () => {
     const navLink = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
+        {user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>}
+        
     </>
     return (
         <div>
@@ -27,7 +30,7 @@ const Navbar = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <Logo></Logo>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
