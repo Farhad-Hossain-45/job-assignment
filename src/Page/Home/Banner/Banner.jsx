@@ -10,7 +10,8 @@ const Banner = () => {
 
             </div>
             <div>
-                <Link to="/dashboard"><button className='btn btn-primary absolute bottom-36 left-96'>Let's Explore</button></Link>
+                <h2 className='absolute md:bottom-64 font-bold text-4xl md:left-96'>TRELLO MANAGE YOUR TIME AND <br /> BE PRODUCTIVE</h2>
+                <Link to="/dashboard"><button className='btn btn-primary absolute md:bottom-44 md:left-96'>Let's Explore</button></Link>
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ const Logo = () => {
                 <div className='flex items-center gap-1'>
                 <div><img src={logo_Image} alt=""  className=' w-16 h-10'/></div>
                 
-                <div><p className='text-green-900 font-medium'>ABC FORUM</p></div>
+                {/* <div><p className='text-green-900 font-medium'>ABC FORUM</p></div> */}
                 </div>
             </div>
             </Link>

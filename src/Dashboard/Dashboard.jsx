@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { MdDelete } from "react-icons/md";
 
 
 
@@ -112,7 +113,7 @@ const Dashboard = () => {
 
     return (
         <div className="my-10">
-            <h2 className="text-5xl text-center font-bold ">Task Management Dashboard</h2>
+            <h2 className="text-5xl text-center font-bold mb-8">Task Management Dashboard</h2>
             <div>
                
 
@@ -127,7 +128,7 @@ const Dashboard = () => {
                                 {...register("title", { required: true })}
                                 type="text"
                                 placeholder="Title"
-                                className="border-2 border-black px-2 py-1 w-full"
+                                className="border-2 border-sky-400 rounded-xl px-2 py-1 w-full"
                             />
                             {errors.title && <span>This field is required</span>}
                         </div>
@@ -139,7 +140,7 @@ const Dashboard = () => {
                             <input
                                 {...register("dedline", { required: true })}
                                 type="date"
-                                className="border-2 border-black px-2 py-1 w-full"
+                                className="border-2 rounded-xl border-sky-400 px-2 py-1 w-full"
                             />
                             {errors.dedline && <span>This field is required</span>}
                         </div>
@@ -152,7 +153,7 @@ const Dashboard = () => {
                                 {...register("priority", { required: true })}
                                 name=""
                                 id=""
-                                className="border-2 border-black px-2 py-1 w-full"
+                                className="border-2 rounded-xl border-sky-400 px-2 py-1 w-full"
                             >
                                 <option value="low">Low</option>
                                 <option value="moderate">Moderate</option>
@@ -167,7 +168,7 @@ const Dashboard = () => {
                         <br />
                         <textarea
                             {...register("descriptions", { required: true })}
-                            className="border-2 border-black px-2 py-1 w-full"
+                            className="border-2 rounded-xl border-sky-400 px-2 py-1 w-full"
                             name="descriptions"
                             id=""
                             rows="2"
@@ -177,7 +178,7 @@ const Dashboard = () => {
                     <input
                         type="submit"
                         value="Add Task"
-                        className="bg-gray-800 px-7 py-2.5 text-white font-normal cursor-pointer"
+                        className="btn btn-outline bg-sky-500 px-7 py-2.5 text-white font-normal cursor-pointer"
                     />
                 </form>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
@@ -187,11 +188,11 @@ const Dashboard = () => {
                             <div key={task?._id}
                                 draggable
                                 onDragStart={(e) => dragStarted(e, task._id)}
-                                className="bg-[#FCEEDF] mb-2 rounded-md p-2"
+                                className="bg-sky-300 mb-2 rounded-md p-2"
                             >
                                 <div className="flex justify-between items-center mb-2">
                                     <h1 className="text-xl font-medium">{task?.title}</h1>
-                                    <button onClick={() => handleDelete(task?._id)} className="text-xl text-red-700">X</button>
+                                    <button onClick={() => handleDelete(task?._id)} className="text-xl text-red-700"><MdDelete /></button>
                                 </div>
                                 <p className="text-sm leading-4 mb-2">{task?.descriptions}</p>
                                 <span className="font-medium px-5 text-white bg-blue-700 rounded-2xl">{task?.priority}</span>
@@ -199,16 +200,16 @@ const Dashboard = () => {
                         ))}
                     </div>
                     <div onDragOver={(e) => dragingOver(e)} onDrop={(e) => dragDroppedOngoing(e, 'ongoing')} className="bg-[#E3DEFC] p-3 rounded-md">
-                        <h1 className="text-2xl font-semibold uppercase">ongoing</h1>
+                        <h1 className="text-2xl font-semibold uppercase">ongoing List</h1>
                         {ongoing?.map((task) => (
                             <div key={task?._id}
                                 draggable
                                 onDragStart={(e) => dragStarted(e, task._id)}
-                                className="bg-[#FCEEDF] mb-2 rounded-md p-2"
+                                className="bg-sky-300 mb-2 rounded-md p-2"
                             >
                                 <div className="flex justify-between items-center mb-2">
                                     <h1 className="text-xl font-medium">{task?.title}</h1>
-                                    <button onClick={() => handleDelete(task?._id)} className="text-xl text-red-700">X</button>
+                                    <button onClick={() => handleDelete(task?._id)} className="text-xl text-red-700"><MdDelete /></button>
                                 </div>
                                 <p className="text-sm leading-4 mb-2">{task?.descriptions}</p>
                                 <span className="font-medium px-5 text-white bg-blue-700 rounded-2xl">{task?.priority}</span>
@@ -216,16 +217,16 @@ const Dashboard = () => {
                         ))}
                     </div>
                     <div onDragOver={(e) => dragingOver(e)} onDrop={(e) => dragDroppedCompleted(e, 'completed')} className="bg-[#E3DEFC] p-3 rounded-md">
-                        <h1 className="text-2xl font-semibold uppercase">Completed</h1>
+                        <h1 className="text-2xl font-semibold uppercase">Completed list</h1>
                         {completed?.map((task) => (
                             <div key={task?._id}
                                 draggable
                                 onDragStart={(e) => dragStarted(e, task._id)}
-                                className="bg-[#FCEEDF] mb-2 rounded-md p-2"
+                                className="bg-sky-300 mb-2 rounded-md p-2"
                             >
                                 <div className="flex justify-between items-center mb-2">
                                     <h1 className="text-xl font-medium">{task?.title}</h1>
-                                    <button onClick={() => handleDelete(task?._id)} className="text-xl text-red-700">X</button>
+                                    <button onClick={() => handleDelete(task?._id)} className="text-xl text-red-700"><MdDelete /></button>
                                 </div>
                                 <p className="text-sm leading-4 mb-2">{task?.descriptions}</p>
                                 <span className="font-medium px-5 text-white bg-blue-700 rounded-2xl">{task?.priority}</span>
